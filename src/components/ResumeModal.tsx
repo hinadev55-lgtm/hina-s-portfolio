@@ -1,4 +1,5 @@
 import { useTheme } from '../context/ThemeContext'
+import profile21 from "./profile21.jpeg";
 
 interface Props {
   onClose: () => void
@@ -77,7 +78,7 @@ export default function ResumeModal({ onClose }: Props) {
             }}
           >
             <img
-              src="./profile1.jpeg"
+              src={profile21}
               alt="Hina Tariq"
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
