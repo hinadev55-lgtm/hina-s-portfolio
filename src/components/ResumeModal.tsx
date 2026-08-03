@@ -77,7 +77,7 @@ export default function ResumeModal({ onClose }: Props) {
             }}
           >
             <img
-              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=120&h=120&fit=crop&auto=format"
+              src="./profile1.jpeg"
               alt="Hina Tariq"
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />

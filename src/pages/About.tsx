@@ -1,5 +1,7 @@
 import { useTheme } from '../context/ThemeContext'
 import { useReveal, AnimCounter } from '../components/shared'
+import '../components/Layout'
+import profile1 from "./profile1.jpeg";
 
 export default function About() {
   const { dark } = useTheme()
@@ -39,7 +41,7 @@ export default function About() {
                 boxShadow: dark ? '8px 8px 32px rgba(0,0,0,0.4)' : '8px 8px 40px rgba(255,182,193,0.3)',
               }}>
                 <img
-                  src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500&h=600&fit=crop&auto=format"
+                  src={profile1}
                   alt="Hina Tariq — About"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />

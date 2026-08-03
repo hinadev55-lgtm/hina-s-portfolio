@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router'
 import { useTheme } from '../context/ThemeContext'
 import { StaggerText } from '../components/shared'
 import ResumeModal from '../components/ResumeModal'
+import profile2 from "./profile2.jpeg";
+
+
 
 // ─── Tech Ticker ──────────────────────────────────────────────────────────────
 function Ticker() {
@@ -280,7 +283,7 @@ export default function Home() {
                   }}
                 >
                   <img
-                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=700&fit=crop&auto=format"
+                    src={profile2}
                     alt="Hina Tariq — Professional Photo"
                     style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }}
                   />

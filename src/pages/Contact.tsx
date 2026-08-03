@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useTheme } from '../context/ThemeContext'
 import { useReveal } from '../components/shared'
+import profile21 from "./profile21.jpeg";
 
 export default function Contact() {
   const { dark } = useTheme()
@@ -56,7 +57,7 @@ export default function Contact() {
               boxShadow: dark ? '0 8px 32px rgba(0,0,0,0.35)' : '0 8px 32px rgba(255,182,193,0.25)',
             }}>
               <img
-                src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500&h=300&fit=crop&auto=format"
+                src={profile21}
                 alt="Contact — Hina Tariq"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
