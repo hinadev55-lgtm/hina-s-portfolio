@@ -249,7 +249,7 @@ function Footer() {
           >
             Hina Tariq
           </span>
-          <span style={{ color: "#FF6F61", fontSize: "1.4rem" }}>.</span>
+          {/* <span style={{ color: "#FF6F61", fontSize: "1.4rem" }}>.</span> */}
         </div>
         <p
           style={{

@@ -29,9 +29,12 @@ export default function About() {
       {/* Content */}
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '80px 24px' }} ref={ref}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 64, alignItems: 'center' }}>
-          {/* Photo */}
-          <div className={`reveal-left ${visible ? 'visible' : ''}`} style={{ display: 'flex', justifyContent: 'center' }}>
+          
+          {/* Photo Section with Black Head Gap */}
+          <div className={`reveal-left ${visible ? 'visible' : ''}`} style={{ display: 'flex', justifyContent: 'center', marginTop: 24 }}>
             <div style={{ position: 'relative', display: 'inline-block' }}>
+              
+              {/* Main Outer Frame */}
               <div style={{
                 width: 'clamp(240px, 32vw, 380px)',
                 height: 'clamp(300px, 40vw, 480px)',
@@ -39,20 +42,35 @@ export default function About() {
                 overflow: 'hidden',
                 border: `3px solid ${dark ? '#4a2a2a' : '#FFD0CC'}`,
                 boxShadow: dark ? '8px 8px 32px rgba(0,0,0,0.4)' : '8px 8px 40px rgba(255,182,193,0.3)',
+                background: '#000000', // Black background for the gap around head
+                padding: '20px 14px 0 14px', // Creates the black space above head and sides
+                boxSizing: 'border-box',
+                display: 'flex',
+                alignItems: 'flex-end',
               }}>
                 <img
                   src={profile1}
                   alt="Hina Tariq — About"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  style={{ 
+                    width: '100%', 
+                    height: '100%', 
+                    objectFit: 'contain', // Picture ko cutout ki tarah fit karega black gap ke sath
+                    objectPosition: 'bottom center',
+                  }}
                 />
               </div>
+
+              {/* Bottom Left Accent Shape */}
               <div style={{
                 position: 'absolute', bottom: -16, left: -16,
                 width: 80, height: 80,
                 borderRadius: '0 40px 0 40px',
                 background: 'rgba(255,111,97,0.15)',
                 border: '2px solid rgba(255,111,97,0.25)',
+                zIndex: -1,
               }} />
+
+              {/* Top Right Floating Badge */}
               <div style={{
                 position: 'absolute', top: -12, right: -12,
                 width: 56, height: 56,
@@ -61,9 +79,11 @@ export default function About() {
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 fontSize: 22,
                 boxShadow: '0 4px 16px rgba(255,111,97,0.4)',
+                zIndex: 2,
               }}>
                 👩‍💻
               </div>
+
             </div>
           </div>
 
@@ -73,14 +93,18 @@ export default function About() {
               <p style={{ fontSize: 12, fontWeight: 700, color: '#FF6F61', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 8, fontFamily: 'Poppins, sans-serif' }}>
                 My Story
               </p>
-              <h2 style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', fontWeight: 800, color: dark ? '#f0ede8' : '#2F4F4F', fontFamily: 'Poppins, sans-serif', margin: 0, lineHeight: 1.2 }}>
+              <h2 style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', fontWeight: '800', color: dark ? '#f0ede8' : '#2F4F4F', fontFamily: 'Poppins, sans-serif', margin: 0, lineHeight: 1.2 }}>
                 Bridging Code &amp; Clarity
               </h2>
             </div>
-            <p style={{ color: dark ? '#b0b8c1' : '#5A6B7C', lineHeight: 1.85, fontSize: '0.95rem', fontFamily: 'Poppins, sans-serif', margin: 0 }}>
+            
+            {/* Paragraph 1 */}
+            <p style={{ color: dark ? '#b0b8c1' : '#5A6B7C', lineHeight: 1.85, fontSize: '0.95rem', fontFamily: 'Poppins, sans-serif', margin: 0, textAlign: 'justify' }}>
               I'm a passionate full-stack developer with a strong foundation in computer science and a love for building clean, scalable web applications. My expertise in the MERN stack allows me to craft seamless end-to-end experiences — from responsive React frontends to robust Node.js/Express APIs backed by MongoDB.
             </p>
-            <p style={{ color: dark ? '#b0b8c1' : '#5A6B7C', lineHeight: 1.85, fontSize: '0.95rem', fontFamily: 'Poppins, sans-serif', margin: 0 }}>
+
+            {/* Paragraph 2 */}
+            <p style={{ color: dark ? '#b0b8c1' : '#5A6B7C', lineHeight: 1.85, fontSize: '0.95rem', fontFamily: 'Poppins, sans-serif', margin: 0, textAlign: 'justify' }}>
               My C++ background sharpened my algorithmic thinking and problem-solving approach. As a course instructor, I've taught both C++ fundamentals and MERN development, turning complex concepts into accessible, practical knowledge for students.
             </p>
 
@@ -109,6 +133,7 @@ export default function About() {
               ))}
             </div>
           </div>
+
         </div>
 
         {/* Stats */}

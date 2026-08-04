@@ -153,7 +153,7 @@ export default function ResumeModal({ onClose }: Props) {
                   padding: '3px 12px',
                 }}
               >
-                2020 – 2024
+                2022 – 2026
               </span>
             </div>
           </div>
