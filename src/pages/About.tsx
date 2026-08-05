@@ -9,8 +9,8 @@ export default function About() {
 
   const stats = [
     { value: 34, suffix: '', label: 'CGPA · 3.4 / 4.0', icon: '🎓', display: '3.4' },
-    { value: 1, suffix: '+', label: 'Year Web Dev', icon: '💻', display: null },
-    { value: 1, suffix: '+', label: 'Year Teaching', icon: '🧑‍🏫', display: null },
+    { value: 1.5, suffix: '+', label: 'Year Web Dev', icon: '💻', display: null },
+    { value: 2, suffix: '+', label: 'Year Teaching', icon: '🧑‍🏫', display: null },
     { value: 50, suffix: '+', label: 'Students Taught', icon: '👩‍🎓', display: null },
   ]
 

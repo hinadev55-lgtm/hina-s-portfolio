@@ -6,7 +6,7 @@ const devCards = [
   {
     role: "MERN Stack Developer",
     company: "Full Stack Web Development",
-    duration: "1 Year",
+    duration: "2 Years",
     color: "#61DAFB",
     points: [
       "Built full-stack web applications using MongoDB, Express.js, React, and Node.js",
@@ -22,7 +22,7 @@ const teachCards = [
   {
     role: "Course Instructor — C++ & MERN",
     company: "University / Private Institute",
-    duration: "1 Year",
+    duration: "1.5 Years",
     color: "#FFB6C1",
     points: [
       "Delivered C++ Programming Fundamentals curriculum to university-level students",
