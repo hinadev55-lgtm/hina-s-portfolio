@@ -1,5 +1,6 @@
+import { digitalSoftsInternship } from '../experience-data'
 import { useTheme } from '../context/ThemeContext'
-import profile21 from "./profile21.jpeg";
+import portrait from "../pages/hina-portrait.webp";
 
 interface Props {
   onClose: () => void
@@ -32,9 +33,9 @@ export default function ResumeModal({ onClose }: Props) {
           maxWidth: 680,
           maxHeight: '88vh',
           overflowY: 'auto',
-          background: dark ? '#1c1c1c' : '#ffffff',
+          background: 'var(--page)',
           borderRadius: 28,
-          border: `1.5px solid ${dark ? '#3d2929' : '#FFD0CC'}`,
+          border: '1.5px solid var(--line)',
           boxShadow: '0 32px 80px rgba(0,0,0,0.35)',
           padding: 'clamp(24px, 5vw, 48px)',
           position: 'relative',
@@ -51,15 +52,15 @@ export default function ResumeModal({ onClose }: Props) {
             width: 36,
             height: 36,
             borderRadius: '50%',
-            border: `1px solid ${dark ? '#3d2929' : '#FFD0CC'}`,
-            background: dark ? '#272020' : '#FFF2F0',
-            color: dark ? '#f0ede8' : '#2F4F4F',
+            border: '1px solid var(--line)',
+            background: dark ? 'var(--surface)' : 'var(--tint)',
+            color: 'var(--ink)',
             cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             fontSize: 16,
-            fontFamily: 'Poppins, sans-serif',
+            fontFamily: 'DM Sans, system-ui, sans-serif',
           }}
         >
           ✕
@@ -69,32 +70,33 @@ export default function ResumeModal({ onClose }: Props) {
         <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 28, paddingRight: 40 }}>
           <div
             style={{
+              background: 'var(--portrait-far)',
               width: 64,
               height: 64,
               borderRadius: 18,
               overflow: 'hidden',
-              border: '2px solid rgba(255,111,97,0.3)',
+              border: '2px solid rgba(125,92,194,0.3)',
               flexShrink: 0,
             }}
           >
             <img
-              src={profile21}
+              src={portrait}
               alt="Hina Tariq"
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
           </div>
           <div>
-            <h2 style={{ fontWeight: 800, fontSize: '1.5rem', color: dark ? '#f0ede8' : '#2F4F4F', marginBottom: 4 }}>
+            <h2 style={{ fontWeight: 800, fontSize: '1.5rem', color: 'var(--ink)', marginBottom: 4 }}>
               Hina Tariq
             </h2>
-            <p style={{ fontSize: '0.88rem', color: '#FF6F61', fontWeight: 600 }}>
-              MERN Stack Developer · CS Graduate · Course Instructor
+            <p style={{ fontSize: '0.88rem', color: 'var(--accent)', fontWeight: 600 }}>
+              Full-stack Developer · AI Systems &amp; Automation Engineer · 4+ years of experience
             </p>
           </div>
         </div>
 
         {/* Divider */}
-        <div style={{ height: 1, background: dark ? '#3d2929' : '#FFE8E5', marginBottom: 24 }} />
+        <div style={{ height: 1, background: 'var(--line)', marginBottom: 24 }} />
 
         {/* Contact row */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, marginBottom: 28 }}>
@@ -110,9 +112,9 @@ export default function ResumeModal({ onClose }: Props) {
                 alignItems: 'center',
                 gap: 6,
                 fontSize: '0.8rem',
-                color: dark ? '#b0b8c1' : '#5A6B7C',
-                background: dark ? '#272020' : '#FFF2F0',
-                border: `1px solid ${dark ? '#3d2929' : '#FFD0CC'}`,
+                color: 'var(--muted)',
+                background: dark ? 'var(--surface)' : 'var(--tint)',
+                border: '1px solid var(--line)',
                 borderRadius: 50,
                 padding: '6px 12px',
               }}
@@ -127,18 +129,18 @@ export default function ResumeModal({ onClose }: Props) {
           <SectionLabel label="Education" />
           <div
             style={{
-              background: dark ? '#272020' : '#FFF2F0',
-              border: `1px solid ${dark ? '#3d2929' : '#FFD0CC'}`,
+              background: dark ? 'var(--surface)' : 'var(--tint)',
+              border: '1px solid var(--line)',
               borderRadius: 14,
               padding: '16px 18px',
             }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 8 }}>
               <div>
-                <div style={{ fontWeight: 700, color: dark ? '#f0ede8' : '#2F4F4F', fontSize: '0.95rem' }}>
+                <div style={{ fontWeight: 700, color: 'var(--ink)', fontSize: '0.95rem' }}>
                   BS Computer Science
                 </div>
-                <div style={{ fontSize: '0.83rem', color: dark ? '#b0b8c1' : '#5A6B7C', marginTop: 3 }}>
+                <div style={{ fontSize: '0.83rem', color: 'var(--muted)', marginTop: 3 }}>
                   University — CGPA 3.4 / 4.0
                 </div>
               </div>
@@ -146,9 +148,9 @@ export default function ResumeModal({ onClose }: Props) {
                 style={{
                   fontSize: 12,
                   fontWeight: 600,
-                  color: '#FF6F61',
-                  background: 'rgba(255,111,97,0.1)',
-                  border: '1px solid rgba(255,111,97,0.2)',
+                  color: 'var(--accent)',
+                  background: 'rgba(125,92,194,0.1)',
+                  border: '1px solid rgba(125,92,194,0.2)',
                   borderRadius: 20,
                   padding: '3px 12px',
                 }}
@@ -164,31 +166,32 @@ export default function ResumeModal({ onClose }: Props) {
           <SectionLabel label="Experience" />
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
             {[
-              { role: 'MERN Stack Developer', company: 'Full Stack Web Development', duration: '1 Year', points: ['Built scalable REST APIs with Node.js + Express', 'Developed React frontends with Redux state management', 'Integrated MongoDB with Mongoose for data persistence'] },
-              { role: 'Course Instructor — C++ & MERN', company: 'University / Private Institute', duration: '1 Year', points: ['Taught C++ Programming Fundamentals to 50+ students', 'Delivered hands-on MERN Stack curriculum', 'Created structured, project-based coursework'] },
+              digitalSoftsInternship,
+              { role: 'MERN Stack Developer', company: 'Full Stack Web Development', duration: '4+ years of experience', points: ['Built scalable REST APIs with Node.js + Express', 'Developed React frontends with Redux state management', 'Integrated MongoDB with Mongoose for data persistence'] },
+              { role: 'Course Instructor — C++ & MERN', company: 'University / Private Institute', duration: '4+ years of experience', points: ['Taught C++ Programming Fundamentals to 50+ students', 'Delivered hands-on MERN Stack curriculum', 'Created structured, project-based coursework'] },
             ].map((exp, i) => (
               <div
                 key={i}
                 style={{
-                  background: dark ? '#272020' : '#FFF2F0',
-                  border: `1px solid ${dark ? '#3d2929' : '#FFD0CC'}`,
+                  background: dark ? 'var(--surface)' : 'var(--tint)',
+                  border: '1px solid var(--line)',
                   borderRadius: 14,
                   padding: '16px 18px',
                 }}
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 8, marginBottom: 10 }}>
                   <div>
-                    <div style={{ fontWeight: 700, color: dark ? '#f0ede8' : '#2F4F4F', fontSize: '0.93rem' }}>{exp.role}</div>
-                    <div style={{ fontSize: '0.8rem', color: dark ? '#b0b8c1' : '#5A6B7C', marginTop: 2 }}>{exp.company}</div>
+                    <div style={{ fontWeight: 700, color: 'var(--ink)', fontSize: '0.93rem' }}>{exp.role}</div>
+                    <div style={{ fontSize: '0.8rem', color: 'var(--muted)', marginTop: 2 }}>{exp.company}</div>
                   </div>
-                  <span style={{ fontSize: 11, fontWeight: 600, color: '#FF6F61', background: 'rgba(255,111,97,0.1)', border: '1px solid rgba(255,111,97,0.2)', borderRadius: 20, padding: '2px 10px' }}>
+                  <span style={{ fontSize: 11, fontWeight: 600, color: 'var(--accent)', background: 'rgba(125,92,194,0.1)', border: '1px solid rgba(125,92,194,0.2)', borderRadius: 20, padding: '2px 10px' }}>
                     {exp.duration}
                   </span>
                 </div>
                 <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: 5 }}>
                   {exp.points.map((p, j) => (
-                    <li key={j} style={{ display: 'flex', gap: 8, fontSize: '0.82rem', color: dark ? '#b0b8c1' : '#5A6B7C', lineHeight: 1.55 }}>
-                      <span style={{ color: '#FF6F61', flexShrink: 0 }}>▸</span> {p}
+                    <li key={j} style={{ display: 'flex', gap: 8, fontSize: '0.82rem', color: 'var(--muted)', lineHeight: 1.55 }}>
+                      <span style={{ color: 'var(--accent)', flexShrink: 0 }}>▸</span> {p}
                     </li>
                   ))}
                 </ul>
@@ -207,9 +210,9 @@ export default function ResumeModal({ onClose }: Props) {
                 style={{
                   fontSize: '0.82rem',
                   fontWeight: 600,
-                  color: '#FF6F61',
-                  background: 'rgba(255,111,97,0.1)',
-                  border: '1px solid rgba(255,111,97,0.2)',
+                  color: 'var(--accent)',
+                  background: 'rgba(125,92,194,0.1)',
+                  border: '1px solid rgba(125,92,194,0.2)',
                   borderRadius: 50,
                   padding: '5px 14px',
                 }}
@@ -225,8 +228,8 @@ export default function ResumeModal({ onClose }: Props) {
           <SectionLabel label="Certifications" />
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
             {['MERN Stack Certified Developer', 'C++ Programming Fundamentals Certified', 'Microsoft Office Certified'].map((c, i) => (
-              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: '0.87rem', color: dark ? '#b0b8c1' : '#5A6B7C' }}>
-                <span style={{ color: '#FF6F61', fontSize: 14 }}>✓</span>
+              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: '0.87rem', color: 'var(--muted)' }}>
+                <span style={{ color: 'var(--accent)', fontSize: 14 }}>✓</span>
                 {c}
               </div>
             ))}
@@ -243,12 +246,12 @@ export default function ResumeModal({ onClose }: Props) {
               padding: '13px 24px',
               borderRadius: 50,
               border: 'none',
-              background: 'linear-gradient(135deg, #FF6F61, #FFB6C1)',
+              background: 'var(--button)',
               color: '#fff',
               fontWeight: 700,
               fontSize: '0.9rem',
               cursor: 'pointer',
-              fontFamily: 'Poppins, sans-serif',
+              fontFamily: 'DM Sans, system-ui, sans-serif',
             }}
           >
             🖨️ Print / Save PDF
@@ -260,13 +263,13 @@ export default function ResumeModal({ onClose }: Props) {
               minWidth: 140,
               padding: '13px 24px',
               borderRadius: 50,
-              border: '2px solid #FF6F61',
+              border: '2px solid var(--accent)',
               background: 'transparent',
-              color: '#FF6F61',
+              color: 'var(--accent)',
               fontWeight: 700,
               fontSize: '0.9rem',
               cursor: 'pointer',
-              fontFamily: 'Poppins, sans-serif',
+              fontFamily: 'DM Sans, system-ui, sans-serif',
               textDecoration: 'none',
               textAlign: 'center',
             }}
@@ -281,7 +284,7 @@ export default function ResumeModal({ onClose }: Props) {
 
 function SectionLabel({ label }: { label: string }) {
   return (
-    <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#FF6F61', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 10 }}>
+    <div style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--accent)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 10 }}>
       {label}
     </div>
   )

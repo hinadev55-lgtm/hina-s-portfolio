@@ -1,7 +1,8 @@
-import { defineConfig, type HtmlTagDescriptor, type Plugin } from 'vite'
+import { defineConfig, loadEnv, type HtmlTagDescriptor, type Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import path from 'node:path'
+import { createContactApp } from './server/contact.mjs'
 
 // import siteConfiguration from './.figma/make/site.json'
 
@@ -19,6 +20,7 @@ export default defineConfig(({ mode }) => {
     plugins: [
       react(),
       tailwindcss(),
+      portfolioContact(loadEnv(mode, process.cwd(), ['SMTP_', 'MAIL_', 'CONTACT_'])),
       // figmaSiteConfiguration(siteConfiguration),
       figmaErrorOverlayReplay(),
       figmaReactRefreshBoundaryFallback(),
@@ -353,6 +355,19 @@ function figmaMakeKitPlugin(options: { storiesGlob: string | string[] }): Plugin
         } catch (err) {
           next(err as Error)
         }
+      })
+    },
+  }
+}
+
+function portfolioContact(env: Record<string, string>): Plugin {
+  const api = createContactApp(env)
+  return {
+    name: 'portfolio-contact',
+    configureServer(server) {
+      server.middlewares.use((req, res, next) => {
+        if (req.url?.split('?')[0] === '/api/contact') api(req, res)
+        else next()
       })
     },
   }

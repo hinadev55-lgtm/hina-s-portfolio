@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useContext, useLayoutEffect, useState } from 'react'
 
 interface ThemeCtx {
   dark: boolean
@@ -6,17 +6,37 @@ interface ThemeCtx {
 }
 
 const ThemeContext = createContext<ThemeCtx>({ dark: true, toggleDark: () => {} })
+const themeKey = 'hina-portfolio-theme'
+
+function getInitialTheme() {
+  try {
+    const saved = localStorage.getItem(themeKey)
+    if (saved === 'dark' || saved === 'light') return saved === 'dark'
+  } catch {
+    // The system preference is also available when storage is blocked.
+  }
+  return window.matchMedia('(prefers-color-scheme: dark)').matches
+}
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [dark, setDark] = useState(true)
+  const [dark, setDark] = useState(getInitialTheme)
 
-  useEffect(() => {
-    if (dark) document.body.classList.add('dark-mode')
-    else document.body.classList.remove('dark-mode')
+  useLayoutEffect(() => {
+    document.documentElement.dataset.theme = dark ? 'dark' : 'light'
   }, [dark])
 
+  function toggleDark() {
+    const next = !dark
+    setDark(next)
+    try {
+      localStorage.setItem(themeKey, next ? 'dark' : 'light')
+    } catch {
+      // The theme still applies for the current visit.
+    }
+  }
+
   return (
-    <ThemeContext.Provider value={{ dark, toggleDark: () => setDark((d) => !d) }}>
+    <ThemeContext.Provider value={{ dark, toggleDark }}>
       {children}
     </ThemeContext.Provider>
   )

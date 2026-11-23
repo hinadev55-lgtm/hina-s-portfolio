@@ -42,29 +42,29 @@ export default function Certifications() {
   const { ref, visible } = useReveal(0.1)
 
   return (
-    <div style={{ background: dark ? '#1c1c1c' : '#ffffff', minHeight: '100vh', paddingTop: 80 }}>
+    <div style={{ background: 'var(--page)' }}>
       {/* Header */}
-      <div style={{ background: dark ? '#1e1414' : '#FFF2F0', padding: '64px 24px 80px', textAlign: 'center' }}>
-        <p style={{ fontSize: 12, fontWeight: 700, color: '#FF6F61', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 12, fontFamily: 'Poppins, sans-serif' }}>
+      <div className="scroll-reveal" style={{ background: 'var(--tint)', padding: '64px 24px 80px', textAlign: 'center' }}>
+        <p style={{ fontSize: 12, fontWeight: 700, color: 'var(--accent)', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 12, fontFamily: 'DM Sans, system-ui, sans-serif' }}>
           Credentials
         </p>
-        <h1 style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', fontWeight: 800, color: dark ? '#f0ede8' : '#2F4F4F', fontFamily: 'Poppins, sans-serif', margin: 0, lineHeight: 1.15 }}>
+        <h2 id="certifications-title" style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', fontWeight: 800, color: 'var(--ink)', fontFamily: 'DM Sans, system-ui, sans-serif', margin: 0, lineHeight: 1.15 }}>
           Certifications
-        </h1>
-        <p style={{ color: dark ? '#b0b8c1' : '#5A6B7C', marginTop: 12, fontSize: '0.95rem', fontFamily: 'Poppins, sans-serif' }}>
+        </h2>
+        <p style={{ color: 'var(--muted)', marginTop: 12, fontSize: '0.95rem', fontFamily: 'DM Sans, system-ui, sans-serif' }}>
           Verified credentials in core technologies and tools.
         </p>
       </div>
 
       <div style={{ maxWidth: 1100, margin: '0 auto', padding: '72px 24px 80px' }} ref={ref}>
-        <div className={`reveal ${visible ? 'visible' : ''}`} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 24 }}>
+        <div className={`reveal ${visible ? 'visible' : ''}`} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: 24 }}>
           {certs.map((cert, i) => (
-            <TiltCard key={i}>
+            <TiltCard key={i} className="scroll-reveal">
               <div
                 style={{
-                  background: dark ? '#272020' : '#ffffff',
-                  border: `1.5px solid ${dark ? '#3d2929' : '#FFE8E5'}`,
-                  boxShadow: '0 6px 28px rgba(255,111,97,0.08)',
+                  background: 'var(--surface)',
+                  border: '1.5px solid var(--line)',
+                  boxShadow: '0 6px 28px rgba(125,92,194,0.08)',
                   borderRadius: 24,
                   padding: '32px',
                   display: 'flex',
@@ -87,9 +87,9 @@ export default function Certifications() {
                   </div>
                   <span style={{
                     fontSize: 11, fontWeight: 700, letterSpacing: '0.1em',
-                    textTransform: 'uppercase', color: '#FF6F61',
-                    background: 'rgba(255,111,97,0.1)', border: '1px solid rgba(255,111,97,0.2)',
-                    borderRadius: 20, padding: '4px 12px', fontFamily: 'Poppins, sans-serif',
+                    textTransform: 'uppercase', color: 'var(--accent)',
+                    background: 'rgba(125,92,194,0.1)', border: '1px solid rgba(125,92,194,0.2)',
+                    borderRadius: 20, padding: '4px 12px', fontFamily: 'DM Sans, system-ui, sans-serif',
                   }}>
                     {cert.year} · Certified
                   </span>
@@ -97,15 +97,15 @@ export default function Certifications() {
 
                 {/* Content */}
                 <div>
-                  <h3 style={{ fontWeight: 700, fontSize: '1.1rem', color: dark ? '#f0ede8' : '#2F4F4F', margin: '0 0 8px', lineHeight: 1.35, fontFamily: 'Poppins, sans-serif' }}>
+                  <h3 style={{ fontWeight: 700, fontSize: '1.1rem', color: 'var(--ink)', margin: '0 0 8px', lineHeight: 1.35, fontFamily: 'DM Sans, system-ui, sans-serif' }}>
                     {cert.title}
                   </h3>
-                  <p style={{ fontSize: '0.82rem', color: dark ? '#b0b8c1' : '#5A6B7C', margin: 0, fontFamily: 'Poppins, sans-serif' }}>
+                  <p style={{ fontSize: '0.82rem', color: 'var(--muted)', margin: 0, fontFamily: 'DM Sans, system-ui, sans-serif' }}>
                     {cert.issuer}
                   </p>
                 </div>
 
-                <p style={{ fontSize: '0.85rem', color: dark ? '#b0b8c1' : '#5A6B7C', lineHeight: 1.65, margin: 0, fontFamily: 'Poppins, sans-serif' }}>
+                <p style={{ fontSize: '0.85rem', color: 'var(--muted)', lineHeight: 1.65, margin: 0, fontFamily: 'DM Sans, system-ui, sans-serif' }}>
                   {cert.desc}
                 </p>
 
@@ -117,7 +117,7 @@ export default function Certifications() {
                       color: cert.color,
                       background: cert.bg, border: `1px solid ${cert.border}`,
                       borderRadius: 50, padding: '3px 10px',
-                      fontFamily: 'Poppins, sans-serif',
+                      fontFamily: 'DM Sans, system-ui, sans-serif',
                     }}>
                       {s}
                     </span>
@@ -133,11 +133,11 @@ export default function Certifications() {
 
         {/* Cert summary banner */}
         <div
-          className={`reveal ${visible ? 'visible' : ''}`}
+          className={`reveal scroll-reveal ${visible ? 'visible' : ''}`}
           style={{
             marginTop: 48,
-            background: dark ? '#272020' : '#FFF2F0',
-            border: `1px solid ${dark ? '#3d2929' : '#FFD0CC'}`,
+            background: dark ? 'var(--surface)' : 'var(--tint)',
+            border: '1px solid var(--line)',
             borderRadius: 24,
             padding: '32px 36px',
             display: 'flex',
@@ -147,18 +147,18 @@ export default function Certifications() {
           }}
         >
           <div style={{ flex: 1, minWidth: 220 }}>
-            <h3 style={{ fontWeight: 800, fontSize: '1.1rem', color: dark ? '#f0ede8' : '#2F4F4F', margin: '0 0 6px', fontFamily: 'Poppins, sans-serif' }}>
+            <h3 style={{ fontWeight: 800, fontSize: '1.1rem', color: 'var(--ink)', margin: '0 0 6px', fontFamily: 'DM Sans, system-ui, sans-serif' }}>
               Committed to Continuous Growth
             </h3>
-            <p style={{ fontSize: '0.87rem', color: dark ? '#b0b8c1' : '#5A6B7C', margin: 0, fontFamily: 'Poppins, sans-serif', lineHeight: 1.6 }}>
+            <p style={{ fontSize: '0.87rem', color: 'var(--muted)', margin: 0, fontFamily: 'DM Sans, system-ui, sans-serif', lineHeight: 1.6 }}>
               Actively pursuing additional certifications in cloud architecture, advanced React patterns, and DevOps practices.
             </p>
           </div>
           <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
-            {[{ num: '3', label: 'Certifications' }, { num: '2+', label: 'Years Experience' }, { num: '50+', label: 'Students Taught' }].map((s, i) => (
+            {[{ num: '3', label: 'Certifications' }, { num: '4+', label: 'Years of experience' }, { num: '50+', label: 'Students Taught' }].map((s, i) => (
               <div key={i} style={{ textAlign: 'center' }}>
-                <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#FF6F61', fontFamily: 'Poppins, sans-serif' }}>{s.num}</div>
-                <div style={{ fontSize: '0.77rem', color: dark ? '#b0b8c1' : '#5A6B7C', fontFamily: 'Poppins, sans-serif', fontWeight: 500 }}>{s.label}</div>
+                <div style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--accent)', fontFamily: 'DM Sans, system-ui, sans-serif' }}>{s.num}</div>
+                <div style={{ fontSize: '0.77rem', color: 'var(--muted)', fontFamily: 'DM Sans, system-ui, sans-serif', fontWeight: 500 }}>{s.label}</div>
               </div>
             ))}
           </div>
